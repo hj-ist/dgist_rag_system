@@ -65,6 +65,8 @@ def summarize_query_with_vectorstore(vectorstore, query):
 ```
 
 4. Test Code
+
+```python
 url = "https://arxiv.org/pdf/2005.11401.pdf"
 vectorstore_path = "vectorstore_faiss"
 
@@ -77,3 +79,12 @@ summary = summarize_query_with_vectorstore(vectorstore, query)
 
 print("요약 결과:")
 print(summary)
+```
+
+
+============================================
+
+- Hallucination 발생
+    - Query의 한국어 문제? → 영어로 질문해도 같은 문제 발생
+    - 오픈소스 LLM의 한계 → OpenAI Key의 Limit이 다해 Meta의 BART/Large-CNN 사용 (타 LLM 적용예정)
+    - 유사도 문서 개수 등 하이퍼파라미터 조정 → 이론 공부가 필요
